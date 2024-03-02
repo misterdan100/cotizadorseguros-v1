@@ -33,7 +33,7 @@ export function calcularPlan(plan) {
 }
 
 export function formatearDinero(cantidad) {
-    return cantidad.toLocaleString('en-us', {
+    return cantidad.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',
     })
