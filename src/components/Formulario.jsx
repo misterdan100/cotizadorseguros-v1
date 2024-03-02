@@ -1,7 +1,10 @@
 import { Fragment } from "react"
+import useCotizador from "../hooks/useCotizador"
 import { MARCAS, YEARS, PLANES } from "../constants"
 
 const Formulario = () => {
+    const { handleChangeDatos, datos } = useCotizador()
+
   return (
     <>
         <form>
@@ -12,6 +15,8 @@ const Formulario = () => {
                 <select
                     name='marca'
                     className='w-full p-3 bg-white border border-gray-200'
+                    onChange={handleChangeDatos}
+                    value={datos.marca}
                 >
                     <option value="">-- Selecciona Marca --</option>
                     {MARCAS?.map( marca => (
@@ -26,11 +31,13 @@ const Formulario = () => {
 
             <div className="my-5">
                 <label className='block mb-3 font-bold text-gray-400 uppercase'>
-                    Anio:
+                    Año:
                 </label>
                 <select
-                    name='marca'
+                    name='year'
                     className='w-full p-3 bg-white border border-gray-200'
+                    onChange={handleChangeDatos}
+                    value={datos.year}
                 >
                     <option value="">-- Selecciona Anio --</option>
                     {YEARS?.map( year => (
@@ -59,7 +66,7 @@ const Formulario = () => {
                                 type="radio"
                                 name="plan"
                                 value={plan.id}
-                            
+                                onChange={handleChangeDatos}
                             />
                         </Fragment>
                     ))}
