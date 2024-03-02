@@ -26,12 +26,13 @@ const Formulario = () => {
             onSubmit={handleSubmit}
         >
             <div className="my-5">
-                <label className='block mb-3 font-bold text-gray-400 uppercase'>
+                <label for='marca' className='block mb-3 font-bold text-gray-400 uppercase'>
                     Marca
                 </label>
                 <select
                     name='marca'
-                    className='w-full p-3 bg-white border border-gray-200'
+                    id="marca"
+                    className='w-full p-3 bg-white border border-gray-200 rounded-xl'
                     onChange={handleChangeDatos}
                     value={datos.marca}
                 >
@@ -47,20 +48,22 @@ const Formulario = () => {
             </div>
 
             <div className="my-5">
-                <label className='block mb-3 font-bold text-gray-400 uppercase'>
+                <label for='year' className='block mb-3 font-bold text-gray-400 uppercase'>
                     Año:
                 </label>
                 <select
                     name='year'
-                    className='w-full p-3 bg-white border border-gray-200'
+                    className='w-full p-3 bg-white border border-gray-200 rounded-xl'
                     onChange={handleChangeDatos}
                     value={datos.year}
+                    id='year'
                 >
-                    <option value="">-- Selecciona Anio --</option>
+                    <option value="" >-- Selecciona Anio --</option>
                     {YEARS?.map( year => (
                         <option
                             key={year}
                             value={year}
+                            className="rounded-xl"
                         >{year}</option>
                     ))}
 
@@ -76,7 +79,7 @@ const Formulario = () => {
                         <Fragment
                             key={plan.id}
                         >
-                            <label>
+                            <label for={plan.nombre}>
                                 {plan.nombre}
                             </label>
                             <input 
@@ -84,6 +87,7 @@ const Formulario = () => {
                                 name="plan"
                                 value={plan.id}
                                 onChange={handleChangeDatos}
+                                id={plan.nombre}
                             />
                         </Fragment>
                     ))}
